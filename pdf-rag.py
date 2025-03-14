@@ -10,7 +10,7 @@ from langchain_community.document_loaders import UnstructuredPDFLoader
 from langchain_community.document_loaders import OnlinePDFLoader
 
 doc_path = "./data/BOI.pdf"
-model = "llama3.2"
+model = "phi3.5"
 
 # Local PDF file uploads
 if doc_path:
@@ -22,7 +22,9 @@ else:
 
     # Preview first page
 content = data[0].page_content
-# print(content[:100])
+print(content[:100])
+
+
 
 
 # ==== End of PDF Ingestion ====
@@ -39,8 +41,8 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=30
 chunks = text_splitter.split_documents(data)
 print("done splitting....")
 
-# print(f"Number of chunks: {len(chunks)}")
-# print(f"Example chunk: {chunks[0]}")
+print(f"Number of chunks: {len(chunks)}")
+print(f"Example chunk: {chunks[0]}")
 
 # ===== Add to vector database ===
 import ollama
@@ -101,10 +103,10 @@ chain = (
 )
 
 
-# res = chain.invoke(input=("what is the document about?",))
+res = chain.invoke(input=("what is the document about? Explain simply and concisely.",))
 # res = chain.invoke(
 #     input=("what are the main points as a business owner I should be aware of?",)
 # )
-res = chain.invoke(input=("how to report BOI?",))
+#res = chain.invoke(input=("how to report BOI?",))
 
 print(res)

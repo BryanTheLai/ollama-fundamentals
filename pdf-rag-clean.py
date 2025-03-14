@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Constants
 DOC_PATH = "./data/BOI.pdf"
-MODEL_NAME = "llama3.2"
+MODEL_NAME = "phi3.5"
 EMBEDDING_MODEL = "nomic-embed-text"
 VECTOR_STORE_NAME = "simple-rag"
 
@@ -80,9 +80,9 @@ def create_chain(retriever, llm):
     """Create the chain"""
     # RAG prompt
     template = """Answer the question based ONLY on the following context:
-{context}
-Question: {question}
-"""
+                {context}
+                Question: {question}
+                """
 
     prompt = ChatPromptTemplate.from_template(template)
 

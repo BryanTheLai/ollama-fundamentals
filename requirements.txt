@@ -12,3 +12,5 @@ fastembed
 pdfplumber
 sentence-transformers
 elevenlabs
+streamlit
+onnx==1.16.1

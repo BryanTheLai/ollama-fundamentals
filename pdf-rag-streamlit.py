@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Constants
 DOC_PATH = "./data/BOI.pdf"
-MODEL_NAME = "llama3.2"
+MODEL_NAME = "phi3.5"
 EMBEDDING_MODEL = "nomic-embed-text"
 VECTOR_STORE_NAME = "simple-rag"
 PERSIST_DIRECTORY = "./chroma_db"
@@ -103,7 +103,7 @@ Original question: {question}""",
 def create_chain(retriever, llm):
     """Create the chain with preserved syntax."""
     # RAG prompt
-    template = """Answer the question based ONLY on the following context:
+    template = """Answer the question based ONLY on the following context and in an elegant, tidy and concise manner.:
 {context}
 Question: {question}
 """
