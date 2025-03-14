@@ -9,7 +9,7 @@ langchain_text_splitters
 unstructured
 unstructured[all-docs]
 fastembed
-pdfplumber
+pikepdf
 sentence-transformers
 elevenlabs
 streamlit
